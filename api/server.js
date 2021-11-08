@@ -3,8 +3,12 @@ const express = require("express");
 const cors = require("cors");
 const server = express();
 
+// Routers
+const userRouter = require("./user-router");
+
 // this tells our app to accept json objects
 server.use(express.json());
 server.use(cors());
+server.use("/users", userRouter);
 
 module.exports = server;
