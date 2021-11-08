@@ -10,14 +10,15 @@ module.exports = {
 };
 
 function find() {
-  return db("users");
+  // query to return all properties of the user object except for the password
+  return db("users").select(["id", "username", "role"]);
 }
 
 function insert(user) {
   return db("users").insert(user);
 }
 
-function update(changes, id) {
+function update(id, changes) {
   return db("users").where({ id }).insert(changes);
 }
 
